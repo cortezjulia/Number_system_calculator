@@ -4,13 +4,14 @@ import java.lang.Math;
 
 public class BinaryOperator {
     private String number;
+    private double decimal_sum = 0;
 
     public BinaryOperator() {
 
     }
 
     public void decimal_converter() {
-        double sum = 0;
+     decimal_sum = 0;
 
         char[] digits = number.toCharArray();
         double j = (digits.length) - 1;
@@ -19,11 +20,21 @@ public class BinaryOperator {
             int digit_int = Character.getNumericValue(digits[i]);
             double conversion = (Math.pow(2, j)) * (double) digit_int;
             j--;
-            sum = sum + conversion;
+            decimal_sum = decimal_sum + conversion;
 
         }
 
-        System.out.println("The binary number in decimal is: " + sum);
+        System.out.println("Decimal is: " + decimal_sum);
+    }
+
+    public void hexadecimal_converter() {
+        HexadecimalOperator deci_hexi = new HexadecimalOperator();
+        
+        int decimal_final=(int)decimal_sum;
+        deci_hexi.setName(decimal_final);
+        // System.out.print("Number: " + bi.getName());
+        deci_hexi.hexadecimal_converter();
+
     }
 
     public String getName() {

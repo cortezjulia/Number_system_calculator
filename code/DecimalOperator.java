@@ -3,7 +3,9 @@ import java.lang.String;
 
 public class DecimalOperator {
 
-    int number;
+    private int number;
+    private String result;
+    private int original_number;
 
     public DecimalOperator() {
 
@@ -18,29 +20,25 @@ public class DecimalOperator {
     }
 
     public void decimal_converter() {
-
+        original_number=number;
         int division;
         int rest;
         
         
         ArrayList<String> binary_list = new ArrayList<>();
-        String result;
+        
 
         while (number >= 2) {
-            division = number / 2;
+            division = number/ 2;
             rest = number % 2;
-            if(number!=2)
-            {
-                binary_list.add(String.valueOf(rest));
-            }
-            else{
-                binary_list.add(String.valueOf(rest));
-                binary_list.add(String.valueOf(division));
-
-            }
-            number = division;
             
+            
+                binary_list.add(String.valueOf(rest));
+        
+            number = division;
         }
+        binary_list.add(String.valueOf(number));
+
         // Convertendo caracteres para String usando concatenação
         // String resultado = String.valueOf(char1) + String.valueOf(char2) +
         // String.valueOf(char3);
@@ -54,7 +52,15 @@ public class DecimalOperator {
             //result = String.valueOf(binary_list.get(k)) + result;
 
         }
-        System.out.println("Number: " + result);
+        System.out.println("Binary: " + result);
+    }
+    public void hexadecimal_converter()
+    {
+        HexadecimalOperator deci_hexi = new HexadecimalOperator();
+        
+        deci_hexi.setName(original_number);
+        // System.out.print("Number: " + bi.getName());
+        deci_hexi.hexadecimal_converter();
     }
 
 }
