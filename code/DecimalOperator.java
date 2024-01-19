@@ -19,7 +19,7 @@ public class DecimalOperator {
         this.number = usuary_number;
     }
 
-    public void decimal_converter() {
+    public void decimal_converter() { //converte decimal em binario
         original_number=number;
         int division;
         int rest;
@@ -54,7 +54,7 @@ public class DecimalOperator {
         }
         System.out.println("Binary: " + result);
     }
-    public void hexadecimal_converter()
+    public void hexadecimal_converter() //converte decimal em hexadecimal
     {
         HexadecimalOperator deci_hexi = new HexadecimalOperator();
         

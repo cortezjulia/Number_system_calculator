@@ -16,20 +16,22 @@ public class HexadecimalOperator {
         this.number = usuary_number;
     }
 
-    public void hexadecimal_converter() {
+    public void hexadecimal_converter() { // recebe um numero decimal e converte em hexadecimal
 
         int division;
         int rest;
+        String[] num_converter = { "10", "11", "12", "13", "14", "15", "16" };
+        String[] letter_converter = { "A", "B", "C", "D", "E", "F" };
 
         ArrayList<String> binary_list = new ArrayList<>();
         String result;
 
         while (number >= 16) {
-            division = number/ 16;
+            division = number / 16;
             rest = number % 16;
             binary_list.add(String.valueOf(rest));
             number = division;
-            
+
         }
 
         binary_list.add(String.valueOf(number));
@@ -42,8 +44,17 @@ public class HexadecimalOperator {
 
         for (int k = 1; k < binary_list.size(); k++) {
 
-            result = binary_list.get(k) + result;
-            
+            int digit = Integer.valueOf(binary_list.get(k));
+            if (digit >= 10) {
+                for (int m = 0; m < 6; m++) {
+                    if (digit == Integer.valueOf(num_converter[m])) {
+                        result = letter_converter[m] + result;
+                    }
+                }
+            } else {
+                result = binary_list.get(k) + result;
+            }
+
             // result = String.valueOf(binary_list.get(k)) + result;
 
         }
@@ -51,7 +62,7 @@ public class HexadecimalOperator {
         System.out.println("Hexadecimal: " + result);
     }
 
-    public int decimal_converter() {
+    public int decimal_converter() { //converte um hexadecimal em decimal
         double decimal_sum = 0;
 
         char[] digits = (String.valueOf(number)).toCharArray();
@@ -64,9 +75,9 @@ public class HexadecimalOperator {
             decimal_sum = decimal_sum + conversion;
 
         }
-        System.out.println("Decimal: " + decimal_sum); 
-        
-        int decimal_final=(int)decimal_sum;
-    return decimal_final;
- }
+        System.out.println("Decimal: " + decimal_sum);
+
+        int decimal_final = (int) decimal_sum;
+        return decimal_final;
+    }
 }

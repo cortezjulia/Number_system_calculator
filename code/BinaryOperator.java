@@ -10,7 +10,7 @@ public class BinaryOperator {
 
     }
 
-    public void decimal_converter() {
+    public void decimal_converter() { //converte binario em decimal
      decimal_sum = 0;
 
         char[] digits = number.toCharArray();
@@ -27,7 +27,7 @@ public class BinaryOperator {
         System.out.println("Decimal is: " + decimal_sum);
     }
 
-    public void hexadecimal_converter() {
+    public void hexadecimal_converter() { //converte o número decimal da função anterior em hexadecimal
         HexadecimalOperator deci_hexi = new HexadecimalOperator();
         
         int decimal_final=(int)decimal_sum;
